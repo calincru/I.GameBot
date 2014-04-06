@@ -1,10 +1,10 @@
 import random
 
 def turn_hash_into_tuple(hash):
-    return (hash['x'],hash['zero'])
+    return (hash['x'],hash['y'])
 
 def turn_tuple_into_hash(tuple):
-    return {'x':tuple[0],'zero':tuple[1]}
+    return {'x':tuple[0],'y':tuple[1]}
 
 def play_turn(
         player_role,
@@ -14,9 +14,9 @@ def play_turn(
     list_of_dicts = owned_by_x + owned_by_zero
     list_of_neighbours = []
     for dict in list_of_dicts:
-        list_of_neighbours += [ (i,j) for i in range(dict['x']-1,dict['zero']+2) 
-                                for j in range(dict['x']-1,dict['zero']+2) 
-                                if (i,j) != (dict['x'],dict['zero']) ]
+        list_of_neighbours += [ (i,j) for i in range(dict['x']-1,dict['y']+2) 
+                                for j in range(dict['x']-1,dict['y']+2) 
+                                if (i,j) != (dict['x'],dict['y']) ]
 			
     list_of_tuples = [ turn_hash_into_tuple(x) for x in list_of_dicts ]
     set_of_dicts = set(list_of_tuples)

@@ -142,14 +142,6 @@ try:
                 print 'ERROR: OWNED_BY_X should be a list, it is not.'
                 continue
         
-            if len(owned_by_x) == 0: 
-                print 'ERROR: OWNED_BY_X is an empty list.'
-                continue            
-
-            if len(owned_by_zero) == 0: 
-                print 'ERROR: OWNED_BY_ZERO is an empty list.'
-                continue            
-
             verify_x = [type(square) is dict for square in owned_by_x]
             truthiness_x = all(verify_x)
             if not truthiness_x:
